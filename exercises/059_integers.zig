@@ -18,11 +18,17 @@
 const print = @import("std").debug.print;
 
 pub fn main() void {
-    var zig = [_]u8 {
-        0o131,     // octal
+    var zig = [_]u8{
+        0o131, // octal
         0b1101000, // binary
-        0x66,      // hex
+        0x66, // hex
     };
+
+    // [TODO] there must be a nicer way haha
+    var i: u8 = 0;
+    while (i < zig.len) : (i += 1) {
+        zig[i] += 1;
+    }
 
     print("{s} is cool.\n", .{zig});
 }
